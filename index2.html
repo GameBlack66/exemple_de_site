@@ -311,69 +311,19 @@
     
     <script>
     (function() {
-        // Configuration
-        const messages = [
-            "⚠️ ACCÈS NON AUTORISÉ ⚠️",
-            "🚫 ARRÊTEZ TOUT DE SUITE 🚫",
-            "🔒 CETTE PAGE EST PROTÉGÉE 🔒",
-            "❌ FERMER CETTE CONSOLE ❌",
-            "🛑 ACTIVITÉ SUSPECTE DÉTECTÉE 🛑",
-            "⚡ ALERTE SÉCURITÉ ⚡",
-            "🔐 ZONE RESTREINTE 🔐",
-            "💀 VOUS ÊTES SURVEILLÉ 💀",
-            "🕵️ ONGLET ELEMENTS DÉTECTÉ 🕵️",
-            "📡 ONGLET NETWORK DÉTECTÉ 📡",
-            "📄 ONGLET SOURCE DÉTECTÉ 📄",
-            "🔍 ARRÊTEZ D'ESPIONNER 🔍"
-        ];
-
-        const couleurs = [
-            "color: red; font-size: 30px; font-weight: bold;",
-            "color: orange; font-size: 25px; font-weight: bold;",
-            "color: purple; font-size: 28px; font-weight: bold;",
-            "background: yellow; color: black; font-size: 22px; font-weight: bold;",
-            "color: red; background: black; font-size: 35px; font-weight: bold;",
-            "color: white; background: red; font-size: 40px; font-weight: bold;"
-        ];
-
+       
         let detected = false;
         let spamInterval = null;
         let countdownTimer = null;
         let countdown = 10;
         let domMutationInterval = null;
 
-        // Spam de la console
-        function spamConsole() {
-            if (spamInterval) clearInterval(spamInterval);
-            
-            spamInterval = setInterval(function() {
-                const msg = messages[Math.floor(Math.random() * messages.length)];
-                const style = couleurs[Math.floor(Math.random() * couleurs.length)];
-                console.log("%c" + msg, style);
+        
                 
-                // Spam spécifique pour Elements
-                console.group("%c🔍 ONGLET ELEMENTS", "color: red; font-size: 20px;");
-                console.log("%cLe DOM change constamment...", "color: orange;");
-                console.log("%cBonne chance pour lire ça !", "color: purple;");
-                console.groupEnd();
-                
-                // Spam spécifique pour Network
-                console.group("%c📡 ONGLET NETWORK", "color: blue; font-size: 20px;");
-                console.log("%cToutes les requêtes sont chiffrées", "color: green;");
-                console.log("%cRien d'intéressant ici...", "color: gray;");
-                console.groupEnd();
-                
-                // Spam spécifique pour Source
-                console.group("%c📄 ONGLET SOURCE", "color: brown; font-size: 20px;");
-                console.log("%cCode obfusqué et illisible", "color: red;");
-                console.log("%cVous ne comprendrez rien !", "color: orange;");
-                console.groupEnd();
-            }, 100);
-        }
-
+      
         // Compte à rebours
         function startCountdown() {
-            countdown = 10;
+            countdown = 1;
             console.log("%c⏱️ COMPTE À REBOURS: 10 secondes avant fermeture...", "color: red; font-size: 40px; font-weight: bold; background: black; padding: 10px;");
             
             countdownTimer = setInterval(function() {
