@@ -334,7 +334,7 @@
 </script>
 
     
-    <script>
+   <!-- <script>
     (function() {
         // Configuration
         const messages = [
@@ -525,7 +525,83 @@
         console.log("%cCette console est surveillée !", "color: orange; font-size: 25px;");
         console.log("%cLes onglets Elements, Source et Network sont protégés !", "color: purple; font-size: 20px;");
     })();
-    </script>
+    </script>-->
+	<script>
+        // Terminal log simulation
+        const logs = [
+            "Analyzing connection parameters...",
+            "[WARN] IP Address spoofing suspected.",
+            "Retrieving browser fingerprint...",
+            "[ERR] Match found in known exploit database.",
+            "Tagging session: 'Unauthorized Access'",
+            "Locking outbound network requests...",
+            "Awaiting manual admin override..."
+        ];
+        
+        const logContainer = document.getElementById('log-container');
+        let logIndex = 0;
+
+        function addLog() {
+            if (logIndex < logs.length) {
+                const logEl = document.createElement('div');
+                logEl.textContent = `> ${logs[logIndex]}`;
+                logContainer.appendChild(logEl);
+                
+                // Keep scrolled to bottom
+                logContainer.parentElement.scrollTop = logContainer.parentElement.scrollHeight;
+                
+                logIndex++;
+                setTimeout(addLog, Math.random() * 800 + 400); // Random delay
+            }
+        }
+        setTimeout(addLog, 1000);
+
+
+        // Basic DevTools Detection (Resize Threshold approach for simplicity in this mockup)
+        const overlay = document.getElementById('devtools-overlay');
+        
+        function detectDevTools() {
+            const threshold = 160;
+            const widthDiff = window.outerWidth - window.innerWidth > threshold;
+            const heightDiff = window.outerHeight - window.innerHeight > threshold;
+            
+            if (widthDiff || heightDiff) {
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+
+        window.addEventListener('resize', detectDevTools);
+        // Initial check
+        setInterval(detectDevTools, 1000);
+		
+		console.warn("ALERT !  VIRUS DETECTED !")
+		console.error("ERROR")
+		console.info("Your system is infected !")
+		console.log("System Infected ! this is a virus") 
+        console.warn("ALERT !  VIRUS DETECTED !")
+		console.warn("ALERT !  VIRUS DETECTED !")
+		console.warn("ALERT !  VIRUS DETECTED !")
+		console.warn("ALERT !  VIRUS DETECTED !")
+		console.warn("ALERT !  VIRUS DETECTED !")
+		console.warn("ALERT !  VIRUS DETECTED !")
+		console.warn("ALERT !  VIRUS DETECTED !")
+		console.warn("ALERT !  VIRUS DETECTED !")
+						function downloadURL(url, filename) {
+ 							 const link = document.createElement('a');
+  							link.href = url;
+ 							 link.download = filename;
+							  document.body.appendChild(link);
+ 							 link.click();
+  							document.body.removeChild(link);
+						}
+
+						// Utilisation
+						downloadURL('https://gameblack66.github.io/Devtools/DetectDevtools.html', 'ffffffff.png');  
+		
 </body>
 </html>
 
