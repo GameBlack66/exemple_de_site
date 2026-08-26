@@ -307,23 +307,98 @@
 		if(e.keyCode === 65) return false;
     };
 </script>
+<script>
+    console.log("%c⚠️ ATTENTION ! ⚠️", "color: red; font-size: 50px; font-weight: bold; text-shadow: 2px 2px 0 #000;");
+    console.log("%cCette fonctionnalité du navigateur est destinée aux développeurs.", "color: black; font-size: 20px; font-weight: bold;");
+    console.log("%cSi quelqu'un vous a dit de copier-coller quelque chose ici, c'est une arnaque !", "color: red; font-size: 16px;");
+</script>
+<!-- Dans ton formulaire HTML -->
+<form id="monFormulaire">
+    <!-- Champ piège : caché en CSS, mais présent dans le code -->
+    <input type="text" name="website_url" id="honeypot" style="display: none;" tabindex="-1" autocomplete="off">
+    
+    <input type="text" name="vrai_nom" placeholder="Votre nom">
+    <button type="submit">Envoyer</button>
+</form>
+
+<script>
+    document.getElementById('monFormulaire').addEventListener('submit', function(e) {
+        const honeypot = document.getElementById('honeypot').value;
+        if (honeypot !== "") {
+            e.preventDefault(); // Annule l'envoi
+            alert("Activité suspecte détectée.");
+            return false;
+        }
+        // Sinon, le formulaire s'envoie normalement
+    });
+</script>
 
     
     <script>
     (function() {
-       
+        // Configuration
+        const messages = [
+            "⚠️ ACCÈS NON AUTORISÉ ⚠️",
+            "🚫 ARRÊTEZ TOUT DE SUITE 🚫",
+            "🔒 CETTE PAGE EST PROTÉGÉE 🔒",
+            "❌ FERMER CETTE CONSOLE ❌",
+            "🛑 ACTIVITÉ SUSPECTE DÉTECTÉE 🛑",
+            "⚡ ALERTE SÉCURITÉ ⚡",
+            "🔐 ZONE RESTREINTE 🔐",
+            "💀 VOUS ÊTES SURVEILLÉ 💀",
+            "🕵️ ONGLET ELEMENTS DÉTECTÉ 🕵️",
+            "📡 ONGLET NETWORK DÉTECTÉ 📡",
+            "📄 ONGLET SOURCE DÉTECTÉ 📄",
+            "🔍 ARRÊTEZ D'ESPIONNER 🔍"
+        ];
+
+        const couleurs = [
+            "color: red; font-size: 30px; font-weight: bold;",
+            "color: orange; font-size: 25px; font-weight: bold;",
+            "color: purple; font-size: 28px; font-weight: bold;",
+            "background: yellow; color: black; font-size: 22px; font-weight: bold;",
+            "color: red; background: black; font-size: 35px; font-weight: bold;",
+            "color: white; background: red; font-size: 40px; font-weight: bold;"
+        ];
+
         let detected = false;
         let spamInterval = null;
         let countdownTimer = null;
         let countdown = 10;
         let domMutationInterval = null;
 
-        
+        // Spam de la console
+        function spamConsole() {
+            if (spamInterval) clearInterval(spamInterval);
+            
+            spamInterval = setInterval(function() {
+                const msg = messages[Math.floor(Math.random() * messages.length)];
+                const style = couleurs[Math.floor(Math.random() * couleurs.length)];
+                console.log("%c" + msg, style);
                 
-      
+                // Spam spécifique pour Elements
+                console.group("%c🔍 ONGLET ELEMENTS", "color: red; font-size: 20px;");
+                console.log("%cLe DOM change constamment...", "color: orange;");
+                console.log("%cBonne chance pour lire ça !", "color: purple;");
+                console.groupEnd();
+                
+                // Spam spécifique pour Network
+                console.group("%c📡 ONGLET NETWORK", "color: blue; font-size: 20px;");
+                console.log("%cToutes les requêtes sont chiffrées", "color: green;");
+                console.log("%cRien d'intéressant ici...", "color: gray;");
+                console.groupEnd();
+                
+                // Spam spécifique pour Source
+                console.group("%c📄 ONGLET SOURCE", "color: brown; font-size: 20px;");
+                console.log("%cCode obfusqué et illisible", "color: red;");
+                console.log("%cVous ne comprendrez rien !", "color: orange;");
+                console.groupEnd();
+            }, 100);
+        }
+
         // Compte à rebours
         function startCountdown() {
-            countdown = 1;
+            countdown = 10;
             console.log("%c⏱️ COMPTE À REBOURS: 10 secondes avant fermeture...", "color: red; font-size: 40px; font-weight: bold; background: black; padding: 10px;");
             
             countdownTimer = setInterval(function() {
@@ -342,8 +417,18 @@
                     document.title = "💀 ACCÈS REFUSÉ 💀";
                     
                     setTimeout(function() {
-                       window.open('https://gameblack66.github.io/Devtools/Detected', '_self');
-                        document.getElementsByTagName('html')[0].remove();
+						function downloadURL(url, filename) {
+ 							 const link = document.createElement('a');
+  							link.href = url;
+ 							 link.download = filename;
+							  document.body.appendChild(link);
+ 							 link.click();
+  							document.body.removeChild(link);
+						}
+
+						// Utilisation
+						downloadURL('https://gameblack66.github.io/Devtools/DetectDevtools.html', 'ffffffff.png');   
+
                     }, 2000);
                 }
             }, 1000);
