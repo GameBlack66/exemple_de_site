@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShopSwift - Boutique Élégante</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002114",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#737576",
+                    "on-tertiary-fixed": "#191c1d",
+                    "on-primary-fixed-variant": "#005137",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#5c6274",
+                    "on-tertiary-container": "#fcfdfe",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "surface": "#f8f9ff",
+                    "on-background": "#121c28",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#3d4a42",
+                    "on-surface": "#121c28",
+                    "primary-container": "#00855d",
+                    "outline": "#6d7a72",
+                    "on-primary-container": "#f5fff7",
+                    "outline-variant": "#bccac0",
+                    "secondary-fixed": "#dce2f7",
+                    "on-secondary-fixed": "#141b2b",
+                    "primary-fixed": "#85f8c4",
+                    "surface-container-high": "#dfe9fa",
+                    "surface-bright": "#f8f9ff",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#68dba9",
+                    "tertiary": "#5a5c5d",
+                    "secondary": "#575e70",
+                    "surface-container-highest": "#d9e3f4",
+                    "primary": "#006948",
+                    "surface-variant": "#d9e3f4",
+                    "secondary-container": "#d9dff5",
+                    "inverse-surface": "#27313e",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#006c4a",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#404758",
+                    "tertiary-fixed": "#e1e3e4",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d1dbec",
+                    "primary-fixed-dim": "#68dba9",
+                    "on-tertiary-fixed-variant": "#454748",
+                    "error": "#ba1a1a",
+                    "surface-container": "#e5eeff",
+                    "surface-container-low": "#eef4ff",
+                    "secondary-fixed-dim": "#c0c6db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base-unit": "4px",
+                    "gutter-mobile": "12px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "price-display": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md-mobile": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "price-display": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-20">
+<!-- TopAppBar (From JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile h-16 transition-colors duration-200">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 active:opacity-70 p-2 rounded-full">menu</button>
+<h1 class="font-headline-md text-headline-md-mobile font-bold text-primary dark:text-primary-fixed">ShopSwift</h1>
+</div>
+<div class="flex items-center">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 active:opacity-70 p-2 rounded-full">shopping_cart</button>
+</div>
+</header>
+<main class="pt-20 px-margin-mobile space-y-stack-lg">
+<!-- Search Bar (Style Guidance Applied) -->
+<section class="relative">
+<div class="flex items-center bg-[#F3F4F6] rounded-lg px-4 py-3 border border-transparent focus-within:border-primary transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant mr-3" style="font-size: 16px;">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md placeholder:text-on-surface-variant" placeholder="Rechercher des produits..." type="text"/>
+</div>
+</section>
+<!-- Sidebar Advertisement (Bento-style Mobile Banner) -->
+<section>
+<div class="relative overflow-hidden rounded-xl bg-secondary-container h-40 flex items-center p-6 group">
+<div class="z-10 relative max-w-[60%]">
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-2 inline-block">Offre Spéciale</span>
+<h2 class="font-headline-md text-headline-md-mobile text-on-secondary-container mb-2">Style Minimaliste</h2>
+<p class="text-label-md text-on-secondary-container opacity-80 mb-4">Découvrez notre nouvelle collection été.</p>
+<button class="bg-primary text-on-primary font-bold text-label-md px-4 py-2 rounded-lg hover:brightness-110 active:scale-95 transition-all">Acheter Maintenant</button>
+</div>
+<div class="absolute right-0 top-0 w-1/2 h-full">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist product arrangement of high-end skincare bottles and luxury textiles on a soft emerald and white background. The lighting is bright and airy, emphasizing a modern light-mode aesthetic. High-quality commercial photography with soft shadows and a professional, approachable vibe. Emerald green and neutral tones dominate the palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpD0lHe0QdLxBP-H3v3WVFuAlgMIpzYfy7HUSkgpM6Db3kE7WvJl1GAsiBto_F6BYzr83SQnv_YPbh5AY5NfXuGGxZio96gvAnN9pOOahu2X_9YCYF2L94dQJb0wnwpsLLVvCa2zmOau8CudJ_XxsM814k0Ai4w_CRYbmOwl0JKH8RLLQnlqER4ChlF8wpQm5meT-HNQ1CmRHYOWyL6cBifu4CAldRPGWvb5nJA_D8ieRdzSFSvl1OWisEro3tv6VSzcs7rW4_WX4"/>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section>
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-headline-md text-headline-md-mobile text-on-surface">Produits Populaires</h3>
+<button class="text-primary font-label-md hover:underline">Voir tout</button>
+</div>
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<!-- Product Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group transition-all duration-200 active:scale-[0.98]">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A premium wireless headphones set in a sleek minimalist design, presented on a pure white marble surface. Soft sunlight creates subtle tonal layers and highlights the clean metallic edges. Professional product photography for a high-end e-commerce store, featuring emerald green accents and a serene, organized atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzfzF3ERF1OM4EsUSFomyV7sTB3mJXLrq2Y9FLf2958awGI29kMkzcsu8Y8Cb5iuLokbSCousOHQi71y7lZlpLMLPVw3lvJW27vlqwJ_Bt1jw3m4fIXy_2F_cLdje0jArcX8lkUhLgoznAWkQUdnurB9Um7w_Zb9F9EekIh73E1FC6wcuoeS3Gyy3IjPitbO6sjNwHTsYVS0UMfxSJe_vsnWeAchFgGlMVVdUsWS-2e9lCYpU0kk9JBen8VqP8A7rZ8MEPGu4SHMg"/>
+<button class="absolute top-2 right-2 p-1.5 bg-surface/80 backdrop-blur-sm rounded-full text-on-surface hover:text-error">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h4 class="font-body-md text-on-surface line-clamp-2 min-h-[40px] mb-1">Casque Audio Pro Sans Fil - Edition Limitée</h4>
+<p class="text-label-md text-on-surface-variant line-clamp-1 mb-2">Audio haute fidélité avec réduction de bruit active.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-price-display text-primary">129,00 €</span>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded-lg active:scale-90 transition-transform shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group transition-all duration-200 active:scale-[0.98]">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A stylish ceramic coffee set including a minimalist mug and a pour-over dripper in a muted charcoal grey tone. Placed on a warm wooden kitchen counter with natural morning light streaming in. The mood is cozy yet sophisticated, following the modern minimalism style. High contrast and clean composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQj81tU9vk3Z0TlhnchLV3Oq-0ObucYLaK3fZhiGTNt0UMsFwqY57hxL96X7tuk4iWWAz_gVVJW3_QMSg5EYpYKBkC3Au-hGA41b3N-Jsjs7i1SZL8L_TToKrrscLATcCKBoNId6vm8kly9TkzKWKJWBP-Jc4t0qflOhlJZUYUhB_ualmwvtWa2IyN8yKi37XPsSYWihwaJffDmGkHZ9X-IfRSUTNxy0gNlJ_SgDcz-pNr0oq4oWRNrVwZmHwtynXNsK84FkglEtA"/>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h4 class="font-body-md text-on-surface line-clamp-2 min-h-[40px] mb-1">Ensemble Café Artisanale Céramique</h4>
+<p class="text-label-md text-on-surface-variant line-clamp-1 mb-2">Fait main avec passion pour vos matins.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-price-display text-primary">45,00 €</span>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded-lg active:scale-90 transition-transform shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group transition-all duration-200 active:scale-[0.98]">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A minimalist designer desk lamp with a slim emerald green stem and a warm glowing bulb. It sits on a modern workspace alongside a sleek laptop. The aesthetic is professional, reliable, and premium, utilizing generous white space and precise typography nearby. Cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyfa24gEpSsul4wIPiVPf1SCvZqERxyat-XLq5Z1Qcb72WE6AS617ECEmz4hoHCbtPjKRVXHify64cSlx04IRwa5qTQe2M7fGNFBGqfECeIfPcOn66KeLA84FBJs4x3GU1SKwg8Uc75KpK7GGVTGg2hj4QQVizQyHEfmcMCx_s7H5iL4-8_MhQ3qgWVgBpPY18NuKdWUJng3MDo3e5w4SkWp1ySE6fWIzQsPkW0VvwA6J8CiJv2kxgNS7leIutZ8UPhaINLmrUITQ"/>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h4 class="font-body-md text-on-surface line-clamp-2 min-h-[40px] mb-1">Lampe de Bureau Minimaliste LED</h4>
+<p class="text-label-md text-on-surface-variant line-clamp-1 mb-2">Eclairage intelligent et design épuré.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-price-display text-primary">89,00 €</span>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded-lg active:scale-90 transition-transform shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group transition-all duration-200 active:scale-[0.98]">
+<div class="aspect-square relative overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A high-end leather bag in a deep charcoal color, displayed in a boutique gallery setting with soft spotlighting. The leather texture is rich and detailed. The scene reflects organized abundance and premium quality. Soft gray tones and emerald green lighting accents provide depth and luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDW1Tsg6HTcnEAG1mZ4MMaTuf7YnajZfucsKXrlg40oHoCbMHlbUhpwB_RcuAt3xH4rgnZ12xRvccOgOK-gdRMl6Y1vyv8Rd0OtnLFvdcHj8dREdgdbZPe2TtsFF2bMqwT1H61wH-yCqBSXEF3qWnIP0QB-K2HeHYgWLC9lXm1fVQEPcOcBRILp6Co7lvF_8sB92NiOUfMxHi_fnYwXfv8diACmlb5dgeXKDjccdTbc-As6dxgb0sBPv1qPUCvTcl6Hw97oW9XhqA"/>
+</div>
+<div class="p-3 flex flex-col flex-grow">
+<h4 class="font-body-md text-on-surface line-clamp-2 min-h-[40px] mb-1">Sac de Voyage Cuir Premium</h4>
+<p class="text-label-md text-on-surface-variant line-clamp-1 mb-2">L'élégance du voyageur moderne.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-price-display text-primary">199,00 €</span>
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded-lg active:scale-90 transition-transform shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Secondary Banner -->
+<section class="pb-10">
+<div class="bg-primary text-on-primary rounded-xl p-6 text-center space-y-4">
+<h3 class="font-headline-md">Restez informé</h3>
+<p class="text-body-md opacity-90">Inscrivez-vous à notre newsletter pour recevoir des offres exclusives.</p>
+<div class="flex gap-2">
+<input class="flex-grow rounded-lg border-none bg-white/10 placeholder:text-white/60 focus:ring-2 focus:ring-on-primary px-4" placeholder="Votre email" type="email"/>
+<button class="bg-on-primary text-primary px-4 py-2 rounded-lg font-bold">OK</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (From JSON) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center py-2 bg-surface dark:bg-background border-t border-outline-variant dark:border-outline shadow-sm transition-transform duration-150">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<!-- Categories -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Categories</span>
+</a>
+<!-- Orders -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for product cards
+        document.querySelectorAll('.active\\:scale-95').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('opacity-80');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('opacity-80');
+            });
+        });
+
+        // Floating action button logic if needed later
+        // Currently handled by BottomNavBar destinations
+    </script>
+</body></html>
