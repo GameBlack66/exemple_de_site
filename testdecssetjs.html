@@ -1,0 +1,61 @@
+<!-- No copyright please -->
+<html>
+<style>
+body {
+	background-color: #999999;
+}
+.button {
+	background-color: red;
+	padding: 25px;
+	border-radius: 20px;
+	border: 2px solid black;
+	box-shadow: 0 5px 20px rgba(255, 0, 0, 1);
+}
+.shutter {
+	background: #9900ff;
+	margin: 100px;
+	padding: 100px;
+	text-align: center;
+	border-radius: 30px;
+	border: 5px solid #8800ff;
+	box-shadow: 0 10px 20px rgba(99, 0, 255, 1);
+}
+</style>
+<body>
+<div class='shutter'>
+<button class='button' onclick='button()'>imprimer la page</button>
+<button class='button' onclick='msg()'>ecrire un msg</button>
+</div>
+<script>
+// No copyright please !
+console.warn("Attetion à cette page car vous pouvez vous faire pirater")
+function button() {
+	print()
+}
+function msg() {
+	const input = document.createElement("MSG");
+	input.type = "text";
+	input.id = "mon-id";
+	input.placeholder = "Your msg : ";
+	document.body.appendChild(input);
+}
+function trip() { 
+	const qs = top.location.search;
+	top.location='https:/gameblack66.github.io/sbabs_company/detectdevtools.html';
+}
+(function detectDevTools() {
+  const threshold = 160;
+  setInterval(() => {
+    if (window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold) {
+      // DevTools probablement ouverts : Opensystatools code devtools, don't copyright please !
+      document.body.style.display = 'none';
+      // ou rediriger, afficher un message, etc. : Opensystatools code newpages, don't copyright please ! 
+	 trip();
+    }
+  }, );
+})();
+// No copyright please !
+</script>
+</body>
+</html>
